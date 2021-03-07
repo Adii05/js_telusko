@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+      <title> jquery </title>
+<link rel="stylesheet" href="style.css.txt">
+<link rel="stylesheet" href="jquery-ui.structure.css">
+
+<link rel="stylesheet" href="jquery-ui.structure.min.css">
+<link rel="stylesheet" href="jquery-ui.theme.css">
+<link rel="stylesheet" href="jquery-ui.theme.min.css">
+
+
+
+</head>
+ <body> 
+<h3> autocomplete widget in jquery ui.</h3>
+<div id="mydivs">
+<label> <b> enter ur fab club name</b></label>
+<input type="text" name="" id="clubtextbox" placeholder="clubname">
+</div> <br>
+<div id="panels" class="mydivs"> 
+<h2> fc barcelona</h2>
+<p> football club in barcelona spain </p> <br>
+<button id=btn1 > click to show msg box.</button> 
+ </div>
+<div id="messagebox" class="mydivs" title="barca">
+<h3> sc eastbengalfc</h3>
+<P> based in kolkata ,erstwhile in eastbengal</P>
+<H4> TOOLTIP IN jquery-ui</H4>
+ <img src="penguins.jpg"  title="" width="100px id="myimg">
+<br>
+<button>clickme</button>
+
+ <!-- <h2>intro to jquery ui</h2>
+  <input id="dateinput" type="text" placeholder="choose ur date"> -->
+</div>
+
+
+  <!--   <h2 id="heading2"> hi culers </h2>
+  <div id="first" class="mydiv"> barca 
+       <p> messi 
+       suarez
+        neymar</p>
+  </div>
+  <div id="second" class="mydiv"> eastbengal </div>
+      <P> bhutia </P>
+  <div id="third" class="mydiv"> srh </div>
+       <ul>
+           <li> warner </li>
+           <li> kane </li>
+           <li> bairstow  </li>
+     </ul>
+ <button id="ad"> Append </button> 
+ <button id="da"> After</button>
+ <button id ="ui"> Prepend </button>
+ <button id="pp"> Before</button>
+ <button id="ip">Remove</button>
+ <button id="up"> empty</button>
+ <button id="cs"> css </button>
+<div id="op" >
+   <P id ="p1">  fc barcelona </P> 
+   <P id="p2 ">  fc barcelona </P>
+  </div>   -->
+
+ </body>
+
+
+ <!-- text(), html() , attr()  , css()  -->
+<!--   append -> inserts content at the end of the selected elements.
+       after -> inserts content after the selected elements.
+      prepend -> insets content at the beginning of the selected elements.
+      before -> inserts content before the selrcted elements.
+      remove -> removes the selected element ( & its child elements ).
+      empty()  -> removes the child elements from the selected element .
+      addClass() -> adds one or more classes to the selected elements.
+      removeClass() -> removes one or more classes from the selected elements.
+      toggleClass() -> toggles between adding / removing classes from the selected elements.
+      css() -> sets or returns the style attributes.
+-->
+
+
+   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> 
+   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+   
+   
+    
+    <script>
+      var clubs=["hyderabadfc", "bengalurufc","mohanbaganfc","eastbengalfc","mohamedansporting"]
+$("#clubtextbox").autocomplete({
+source: clubs
+},      {
+      autoFocus: true,
+      delay: 200,
+      minLength: 3,
+
+       })
+
+
+
+
+     $("#btn1").click(function(){
+       $("#messagebox").dialog({
+         title:"custom Message Box",
+         draggable: false,
+         resizeable: false,
+         height: 250,
+         width: 250,
+         modal: true,
+
+        buttons: [
+          {
+          text: "close",
+          icon: "ui-icon-heart",
+          click: function() {
+            $(this).dialog("close");
+                            }
+
+            },
+
+
+        {text: "ok",
+        icon: "ui-icon-heart",
+        click: function() {
+          alert("aww");
+         // $(this).dialog("hmm");
+                          }
+
+
+
+
+          }
+      ]
+
+
+
+
+
+
+
+       });
+
+
+
+
+     })
+
+     var height = $( ".selector" ).dialog( "option", "height" );
+     $( ".selector" ).dialog( "option", "height", 400 )
+
+     /* $("#panels").accordion({
+        collapsible: true,
+        event: "click",
+        animate: 3000,
+        active: 1,
+        heightStyle: true,
+         // icons{header:"ui-icon-plus",activeHeader:"ui-icon-minus"}
+
+
+
+      }) */
+       /* $("img").tooltip({
+         track: true,
+         content:"aww",
+         show:{effect:"bounce", duration:200} , // highlight, pulsate,explode,blind
+                                             
+
+
+
+      }); */
+
+
+
+
+      /*   $("#dateinput").datepicker({          // assigning customs in key/value pairs in arguments
+           numberOfMonths : 4,
+           changeYear: true , 
+           changeMonth: true,
+           showWeek: true,
+           showOtherMonths: true
+           
+          // maxDate: new Date(2024,0,1)
+         });                          */    // inbuilt methods in jqueryui.
+
+
+
+
+
+
+
+
+
+
+
+
+      /* $(document).ready(function(){
+
+           $("#ad").click(function(){
+                                     $("#op").append("<p> sevilla fc </P>");
+
+                                     });
+           $("#da").click(function(){
+              $("#op").after("<P> sevilla fc</p>");
+
+           });
+
+           $("#ui").click(function(){
+             $("#op").prepend("<p> realmadrid </P>");
+           })
+
+
+           $("#pp").click(function(){
+             $("#op").before("<p> realmadrid </P>");
+           })
+      
+            
+           $("#ip").click(function(){
+             $("#op").remove("#p2");
+           })
+
+           
+           $("#up").click(function(){
+             $("#op").empty("");
+           })
+         });
+          
+          $("#cs").click(function(){
+            alert($("#op").css("color" , "red"));
+          })    */
+
+
+
+
+
+
+        /*
+                  $("#da").click(function(){
+                  alert($("#first").css("class"));
+         }
+               $("#ad").click(function() 
+            {
+             alert($("#first").css("class","mydiv2"));
+             })
+
+
+          // alert($("#second").text("sceb"));
+           // alert($("#third").html());
+           //alert($("#first").attr("class"));
+         //alert( $("#first").attr("class", "mydiv2"));
+         })
+
+
+
+
+
+       })
+      /*  $(document).ready(function()  // ready global event
+        { 
+         $("#da").click(function (){
+          $("#first").slideUp();
+         })
+               
+
+           $("#ad").click(function (){
+            $("#first").slideDown();
+
+         
+           })
+
+           $("#ui").click(function(){
+              $("#second").slidetoggle();
+          })
+
+
+             // toggle= hide + show 
+           // hover = mouseleave + mouseenter 
+          /*  $("button").mouseleave(fin);
+           $("button").mouseenter(fu);
+                // jquery event 
+           function fu()
+            {
+              $("ul > ").fadeOut(1000);
+             // $("h2").action();
+              //  $("#heading2").fadeToggle(2004); 
+            }
+             
+            function fin()
+            {
+                $("ul > ").fadein(2000);
+                 
+            } 
+           */
+          
+    </script>  
+   
+  
+
+
+
+
+
+</html>    
